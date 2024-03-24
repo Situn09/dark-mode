@@ -1,113 +1,188 @@
 import Image from "next/image";
+import img from "/img/fourth.png";
+import Button from "@/app/button";
+import Provider from "./themeProvider";
+import ThemeSwitcher from "./themeSwitcher";
 
 export default function Home() {
+  const data = [
+    {
+      imgPath: "/img/first.png",
+      playerName: "Sacramento River Cats",
+      totalEvents: "48 Events",
+      sport: "Baseball",
+    },
+    {
+      imgPath: "/img/second.png",
+      playerName: "Las Vegas Aviators",
+      totalEvents: "28 Events",
+      sport: "Baseball",
+    },
+    {
+      imgPath: "/img/third.png",
+      playerName: "New Jersey Devils",
+      totalEvents: "Ice Hockey",
+      sport: "15 Events",
+    },
+    {
+      imgPath: "/img/fourth.png",
+      playerName: "Las Vegas Aviators",
+      totalEvents: "28 Events",
+      sport: "Baseball",
+    },
+  ];
+
+  const lowerImgData = [
+    {
+      imgPath: "/img/lowerFirst.png",
+      name: "Las Vegas Aviators",
+      content: "Las Vegas Ballpark, Las Vegas, Nevada",
+      button: "Take Flight Collection",
+    },
+    {
+      imgPath: "/img/lowerSecond.png",
+      name: "Sacramento River Cats",
+      content: "Sutter Health Park, Sacramento, California",
+      button: "Orange Collection",
+    },
+    {
+      imgPath: "/img/lowerFirst.png",
+      name: "Las Vegas Aviators",
+      content: "Las Vegas Ballpark, Las Vegas, Nevada",
+      button: "Take Flight Collection",
+    },
+  ];
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="dark:bg-[#292B32] sm:px-[50px] py-[30px] bg-[#F7F7F8] font-[inter]">
+      <div className="flex justify-between items-center">
+        <span className="font-bold text-2xl border-b-4 p-2 m-2 border-[#738FFF]  dark:text-[white] text-[#000000]">
+          Sports
+        </span>{" "}
+        {/* <Button /> */}
+        <div className="mr-[50px]">
+          <ThemeSwitcher />
         </div>
       </div>
+      <div className="flex my-[50px] gap-5 flex-wrap w-[100%] justify-around text-balck dark:text-white lg:justify-between font-[inter]">
+        {data.map((player) => (
+          <div className=" dark:bg-[#3B3E47] bg-[#FFFFFF] px-[10px] py-[10px]  shadow-lg shadow-[#00000033] shrink-0">
+            <Image
+              src={player.imgPath}
+              width={217}
+              height={385.31}
+              alt="Picture of the author"
+              className="mb-[10px]"
+            />
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+            <span className="my-[5px] font-bold text-[17px] ">
+              {" "}
+              {player.playerName}
+            </span>
+            <div className="flex justify-around dark:bg-[#292B32] bg-[#F7F7F8] mt-[10px] px-[5px] py-[5px]">
+              <div>
+                <span className="text-[12px] text-[#525965] dark:text-[#DFDFDF]">
+                  Total Events
+                </span>
+                <br />{" "}
+                <span className="font-semibold">{player.totalEvents}</span>
+              </div>
+              <div>
+                <span className="text-[12px] text-[#525965] dark:text-[#DFDFDF]">
+                  Sport
+                </span>
+                <br /> <span className="font-semibold">{player.sport}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+        <div className=" dark:bg-[#3B3E47] px-[10px] py-[10px]  shadow-lg shadow-[#00000033] w-[237px]">
+          <div className="relative">
+            <Image
+              src="/img/ad.png"
+              width={217}
+              height={218}
+              alt="Picture of the author"
+              className="mb-[10px] "
+            />
+            <span className="absolute p-[5px] text-white bg-black top-0 right-0">
+              AD
+            </span>
+          </div>
+
+          <span className="my-[5px] font-bold text-[20px] ">
+            {" "}
+            Advertisement title
+          </span>
+          <article>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
+            ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.
+          </article>
+        </div>
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className="dark:bg-gradient-to-b from-[#18282A] to-[#221A2C] bg-[#F9F8FF] sm:px-[77px] py-[77px] dark:text-white">
+        <div className="mb-[20px] sm:p-[50px]">
+          <div className="text-center text-[50px] md:text-[70px] font-bold mb-[20px] font-serif">
+            Collection Spotlight
+          </div>
+          <div className="text-center font-semibold tex-[12px]">
+            Discover extraordinary moments with our Spotlight Collection
+            metatickets—exclusive access to premium events for an unforgettable
+            experience. Grab yours today!
+          </div>
+        </div>
+        <div className="flex align-middle items-center">
+          <div className="hidden lg:visible lg:grid">
+            <Image
+              src="/img/leftArrow.png"
+              width={36.75}
+              height={49}
+              alt="arrow"
+            />
+          </div>
+          <div className="flex flex-wrap align-middle justify-around w-[100%] text-">
+            {lowerImgData.map((player) => (
+              <div className="relative dark:bg-[url('/img/lowerImageContainer.png')] bg-[url('/img/lowerImageWhiteBg.png')] w-[257px] h-[600px] dark:shadow-lg  dark:shadow-[#0000000D] bg-contain shrink-0">
+                <Image
+                  src={player.imgPath}
+                  width={217}
+                  height={385.31}
+                  alt="Picture of the author"
+                  className="relative top-[35px] mt-[7px] mr-[10px] mb-[29px] ml-[21px] shrink-0 scale-[1.2] "
+                />
+                <div className="relative border-[1px] border-dashed border-[#818A97] mx-[auto] mt-[58px] w-[80%]"></div>
+                <div className="relative px-[20px] py-[10px]">
+                  <div className="text-[17px] font-semibold text-center mt-[12px]">
+                    {player.name}
+                  </div>
+                  <div className="text-[13px] text-center font-semibold my-[10px] ">
+                    Oct 15 | Sun | 4:30 PM
+                  </div>
+                  <div className="text-[12px] text-center">
+                    {player.content}
+                  </div>
+                  <div className="bg-[#000000] text-center text-white mx-[20px] my-[10px] font-semibold text-[13px] p-[2px]">
+                    <div>{player.button}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div
+            style={{ alignItems: "center" }}
+            className="hidden lg:visible lg:grid"
+          >
+            <Image
+              src="/img/rightArrow.png"
+              width={36.75}
+              height={49}
+              alt="arrow"
+            />
+          </div>
+        </div>
       </div>
-    </main>
+    </div>
   );
 }
