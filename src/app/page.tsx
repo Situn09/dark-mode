@@ -65,8 +65,11 @@ export default function Home() {
         </div>
       </div>
       <div className="flex my-[50px] gap-5 flex-wrap w-[100%] justify-around text-balck dark:text-white lg:justify-between font-[inter]">
-        {data.map((player) => (
-          <div className=" dark:bg-[#3B3E47] bg-[#FFFFFF] px-[10px] py-[10px]  shadow-lg shadow-[#00000033] shrink-0">
+        {data.map((player, index) => (
+          <div
+            key={index}
+            className=" dark:bg-[#3B3E47] bg-[#FFFFFF] px-[10px] py-[10px]  shadow-lg shadow-[#00000033] shrink-0"
+          >
             <Image
               src={player.imgPath}
               width={217}
@@ -143,8 +146,11 @@ export default function Home() {
             />
           </div>
           <div className="flex flex-wrap align-middle justify-around w-[100%] text-">
-            {lowerImgData.map((player) => (
-              <div className="relative dark:bg-[url('/img/lowerImageContainer.png')] bg-[url('/img/lowerImageWhiteBg.png')] w-[257px] h-[600px] dark:shadow-lg  dark:shadow-[#0000000D] bg-contain shrink-0">
+            {lowerImgData.map((player, index) => (
+              <div
+                key={index}
+                className="relative dark:bg-[url('/img/lowerImageContainer.png')] bg-[url('/img/lowerImageWhiteBg.png')] w-[257px] h-[600px] dark:shadow-lg  dark:shadow-[#0000000D] bg-contain shrink-0"
+              >
                 <Image
                   src={player.imgPath}
                   width={217}
